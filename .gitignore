@@ -24,3 +24,14 @@ yarn-error.log*
 
 package-lock.json
 .idea
+.idea/.gitignore
+.idea/dictionaries/
+.idea/frontend.iml
+.idea/inspectionProfiles/
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+src/Author/
+src/Book/
+src/Img/
