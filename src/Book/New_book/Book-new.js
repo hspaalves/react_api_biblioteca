@@ -21,7 +21,7 @@ class BookNew extends React.Component {
         fetch('http://localhost:8000/v1/book/', {
             method: 'POST',
             body: data,
-        });
+        }).then(r => r.json());
         document.getElementById("Book-form").reset();
 
     }

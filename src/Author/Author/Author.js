@@ -1,5 +1,15 @@
 import React from 'react';
-import {Button, Container, Image, Row, Col, Table, Navbar, Nav, NavDropdown} from 'react-bootstrap'
+import {
+    Button,
+    Container,
+    Image,
+    Row,
+    Col,
+    Table,
+    Navbar,
+    Nav,
+    NavDropdown
+} from 'react-bootstrap'
 import logo from "../../Img/logo-ex-2.png";
 
 class Author extends React.Component{

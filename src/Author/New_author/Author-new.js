@@ -1,5 +1,16 @@
 import React from 'react';
-import {Form, Button, InputGroup, FormControl, Container, Image, Row, Col, Nav, Navbar} from 'react-bootstrap'
+import {
+    Form,
+    Button,
+    InputGroup,
+    FormControl,
+    Container,
+    Image,
+    Row,
+    Col,
+    Nav,
+    Navbar
+} from 'react-bootstrap'
 import logo from '../../Img/logo-ex-2.png'
 
 class AuthorNew extends React.Component{
