@@ -10,6 +10,8 @@ import AuthorNew from "./Author/New_author/Author-new";
 import AuthorRemove from "./Author/Remove_author/Author-remove";
 import Booklist from "./Book/List_books/Book-list";
 import BookNew from "./Book/New_book/Book-new";
+import Book from "./Book/Book/Book";
+
 
 ReactDOM.render(
     <BrowserRouter>
@@ -22,6 +24,8 @@ ReactDOM.render(
             <Route path="/del/Author/:id" exact={true} component={AuthorRemove} />
             <Route path="/Book" exact={true} component={Booklist} />
             <Route path="/new/Book" exact={true} component={BookNew} />
+            <Route path="/book/:id" exact={true} component={Book} />
+            <Route path="/book/?name=:name" exact={true} component={Book} />
         </Switch>
     </BrowserRouter>,
     document.getElementById('root'));
