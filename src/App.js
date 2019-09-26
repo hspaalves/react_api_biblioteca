@@ -82,14 +82,10 @@ class App extends React.Component{
                   id="igd"
               >
                 <Dropdown.Item href={`/author/?name=${this.state.value}`}>Search Author</Dropdown.Item>
-                <Dropdown.Item href="/">Search Book</Dropdown.Item>
-                <Dropdown.Item href="/">Search All</Dropdown.Item>
+                <Dropdown.Item href={`/book/?name=${this.state.value}`}>Search Book</Dropdown.Item>
               </DropdownButton>
             </InputGroup>
           </div>
-          <script>
-            {console.log(this.state.value)}
-          </script>
         </div>
     );
   }
