@@ -23,7 +23,16 @@ class Author extends React.Component{
     }
     componentDidMount() {
         let author_id = this.props.match.params.id;
-        fetch(`http://localhost:8000/v1/author/${author_id}`)
+        let string_name = this.props.match.params.name;
+        let string = '';
+        if (author_id === null){
+            string = `http://localhost:8000/v1/author/?name=${string_name}`;
+        }
+        else {
+            string = `http://localhost:8000/v1/author/${author_id}`;
+        }
+
+        fetch(string)
             .then(res => res.json())
             .then(
                 (result) => {
