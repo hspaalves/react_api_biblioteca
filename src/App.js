@@ -20,21 +20,24 @@ import {
 class App extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {name: ''};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({name: event.target.value});
   }
 
   handleSubmit(event) {
-    alert('Um nome foi enviado: ' + this.state.value);
+    alert('Um nome foi enviado: ' + this.state.name);
     event.preventDefault();
   }
   render() {
+    const { name } = this.state;
+
+    const enabled = name.length > 0;
     return (
         <div>
           <div>
@@ -65,26 +68,31 @@ class App extends React.Component{
             </Container>
           </div>
           <div>
-            <InputGroup>
-              <FormControl
-                  placeholder="Search"
-                  aria-label="Search by name"
-                  aria-describedby="basic-addon2"
-                  size={"lg"}
-                  value={this.state.value}
-                  onChange={this.handleChange}
-              />
+            <Container>
+              <InputGroup>
+                <FormControl
+                    placeholder="Search"
+                    aria-label="Search by name"
+                    aria-describedby="basic-addon2"
+                    size={"lg"}
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                    id = "name"
+                    name = "name"
+                />
 
-              <DropdownButton
-                  as={InputGroup.Append}
-                  variant="outline-primary"
-                  title="Search"
-                  id="igd"
-              >
-                <Dropdown.Item href={`/author/?name=${this.state.value}`}>Search Author</Dropdown.Item>
-                <Dropdown.Item href={`/book/?name=${this.state.value}`}>Search Book</Dropdown.Item>
-              </DropdownButton>
-            </InputGroup>
+                <DropdownButton
+                    as={InputGroup.Append}
+                    variant="outline-primary"
+                    title="Search"
+                    id="igd"
+                >
+                  <Dropdown.Item href={`/author/?name=${this.state.name}`} disabled={!enabled}>Search Author</Dropdown.Item>
+                  <Dropdown.Item href={`/book/?name=${this.state.name}`} disabled={!enabled}>Search Book</Dropdown.Item>
+                </DropdownButton>
+              </InputGroup>
+            </Container>
+
           </div>
         </div>
     );
