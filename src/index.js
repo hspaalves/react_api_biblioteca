@@ -19,7 +19,7 @@ ReactDOM.render(
             <Route path="/" exact={true} component={App} />
             <Route path="/author" exact={true} component={AuthorList} />
             <Route path="/author/:id" exact={true} component={Author} />
-            <Route path="/author/?name=:name" exact={true} component={Author} />
+            <Route path="/author/search/:name" exact={false} component={Author} />
             <Route path="/new/Author" exact={true} component={AuthorNew} />
             <Route path="/del/Author/:id" exact={true} component={AuthorRemove} />
             <Route path="/Book" exact={true} component={Booklist} />
