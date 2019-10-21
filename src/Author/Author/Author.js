@@ -22,14 +22,17 @@ class Author extends React.Component{
         };
     }
     componentDidMount() {
-        let author_id = this.props.match.params.id;
-        let string_name = this.props.match.params.name;
+        let author_id = '';
+        let string_name = '';
+        author_id = this.props.match.params.id;
+        string_name = this.props.match.params.name;
         let string = '';
-        if (author_id === null){
+        if (author_id === undefined){
             string = `http://localhost:8000/v1/author/?name=${string_name}`;
         }
         else {
             string = `http://localhost:8000/v1/author/${author_id}`;
+            this.isAuthor = true;
         }
 
         fetch(string)
@@ -94,13 +97,29 @@ class Author extends React.Component{
                                         <th colSpan={3}>Opções</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr key={items.name}>
-                                        <td>{items.id}</td>
-                                        <td>{items.name}</td>
-                                        <td><Button variant={"secondary"} size="lg" block>Alterar</Button></td>
-                                        <td><Button variant={"secondary"} href={`/del/author/${items.id}`} size="lg" block>Excluir</Button></td>
-                                    </tr>
+                                <tbody>{
+                                    this.isAuthor?
+                                        <tr key={items.name}>
+                                            <td>{items.id}</td>
+                                            <td>{items.name}</td>
+                                            <td><Button variant={"secondary"} size="lg" block>Alterar</Button></td>
+                                            <td><Button variant={"secondary"} href={`/del/author/${items.id}`} size="lg" block>Excluir</Button></td>
+                                        </tr>
+                                        :
+                                        items.results.map(value =>
+                                            <tr key={value.name}>
+                                                <td>{value.name}</td>
+                                                <td>{value.id}</td>
+                                                <td><Button variant={"secondary"} size="lg" block>Alterar</Button></td>
+                                                <td><Button variant={"secondary"} href={`/del/author/${value.id}`} size="lg" block>Excluir</Button></td>
+                                            </tr>
+
+
+                                        )
+
+
+                                }
+
                                 </tbody>
                             </Table>
                         </Container>
