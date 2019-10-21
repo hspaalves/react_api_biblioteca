@@ -87,7 +87,7 @@ class App extends React.Component{
                     title="Search"
                     id="igd"
                 >
-                  <Dropdown.Item href={`/author/?name=${this.state.name}`} disabled={!enabled}>Search Author</Dropdown.Item>
+                  <Dropdown.Item href={`/author/search/${this.state.name}`} disabled={!enabled}>Search Author</Dropdown.Item>
                   <Dropdown.Item href={`/book/?name=${this.state.name}`} disabled={!enabled}>Search Book</Dropdown.Item>
                 </DropdownButton>
               </InputGroup>
